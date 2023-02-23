@@ -1,7 +1,7 @@
-import 'package:flutter/material.dart';
-import 'package:google_maps_flutter/google_maps_flutter.dart';
-
-const LatLng currentLocation = LatLng(9.9252, 78.1198);
+import "package:flutter/material.dart";
+import "package:flutter_map/flutter_map.dart";
+import "package:latlong/latlong.dart";
+import "package:http/http.dart" as http;
 
 class GMap extends StatefulWidget {
   const GMap({Key key}) : super(key: key);
@@ -10,14 +10,30 @@ class GMap extends StatefulWidget {
 }
 
 class _GMapState extends State<GMap> {
+  final String apiKey = "T2rYSspl8AbbsHztn1TXSX7FkGLotoh4";
+
   @override
   Widget build(BuildContext context) {
-    return const Scaffold(
-        body: GoogleMap(
-      initialCameraPosition: CameraPosition(
-        target: currentLocation,
-        zoom: 40,
+    final tomtomHQ = new LatLng(9.939093, 78.121719);
+    return MaterialApp(
+      title: "TomTom Map",
+      home: Scaffold(
+        body: Center(
+            child: Stack(
+          children: <Widget>[
+            FlutterMap(
+              options: new MapOptions(center: tomtomHQ, zoom: 13.0),
+              layers: [
+                new TileLayerOptions(
+                  urlTemplate: "https://api.tomtom.com/map/1/tile/basic/main/"
+                      "{z}/{x}/{y}.png?key={apiKey}",
+                  additionalOptions: {"apiKey": apiKey},
+                )
+              ],
+            )
+          ],
+        )),
       ),
-));
-}
+    );
+  }
 }
