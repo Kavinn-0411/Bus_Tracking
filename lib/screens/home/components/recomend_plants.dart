@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:plant_app/screens/details/details_screen.dart';
 import 'package:plant_app/screens/details/gmap.dart';
+import 'package:plant_app/screens/home/components/fromto.dart';
 
 import '../../../constants.dart';
 
@@ -20,12 +21,12 @@ class RecomendsPlants extends StatelessWidget {
             title: "DISTRICT BUSES",
             country: "Tamilnadu",
             press: () {
-              /*Navigator.push(
+              Navigator.push(
                 context,
                 MaterialPageRoute(
-                  builder: (context) => DetailsScreen(),
+                  builder: (context) => Fromto(),
                 ),
-              );*/
+              );
             },
           ),
           RecomendPlantCard(

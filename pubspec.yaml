@@ -18,7 +18,7 @@ publish_to: "none" # Remove this line if you wish to publish to pub.dev
 version: 1.0.0+1
 
 environment:
-  sdk: ">=2.7.0 <3.0.0"
+  sdk: ">=2.7.0 <3.7.5"
 
 dependencies:
   flutter:
@@ -30,6 +30,7 @@ dependencies:
   flutter_svg: ^0.19.1 #it helps us to use SVG
   flutter_map: 0.10.1+1
   http: 0.12.2
+  dropdown_textfield: ^1.0.3
 
 dev_dependencies:
   flutter_test:
