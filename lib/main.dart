@@ -2,10 +2,18 @@ import 'package:flutter/material.dart';
 import 'package:plant_app/constants.dart';
 import 'package:plant_app/screens/home/home_screen.dart';
 import 'package:plant_app/screens/home/login.dart';
+import 'package:firebase_storage/firebase_storage.dart';
+import 'package:firebase_core/firebase_core.dart';
 
-void main() {
+Future main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  await Firebase.initializeApp();
   runApp(MyApp());
 }
+
+/*void main() {
+  runApp(MyApp());
+}*/
 
 class MyApp extends StatelessWidget {
   // This widget is the root of your application.
