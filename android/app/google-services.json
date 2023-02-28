@@ -9,7 +9,7 @@
       "client_info": {
         "mobilesdk_app_id": "1:966826560203:android:b79c83d6636c9c14ae694e",
         "android_client_info": {
-          "package_name": "com.android.application"
+          "package_name": "com.example.bus_tracker"
         }
       },
       "oauth_client": [

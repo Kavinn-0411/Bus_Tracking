@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:plant_app/screens/home/home_screen.dart';
+import 'package:bus_tracker/Interface/home/home_page.dart';
 
 class LoginScreen extends StatefulWidget {
   @override
@@ -128,12 +128,14 @@ class _LoginScreenState extends State<LoginScreen> {
         style: ButtonStyle(
           foregroundColor: MaterialStateProperty.all<Color>(Colors.blueGrey),
         ),
-        onPressed: () {Navigator.push(
-                context,
-                MaterialPageRoute(
-                  builder: (context) => HomeScreen(),
-                ),
-              );},
+        onPressed: () {
+          Navigator.push(
+            context,
+            MaterialPageRoute(
+              builder: (context) => HomeScreen(),
+            ),
+          );
+        },
         child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: <Widget>[
