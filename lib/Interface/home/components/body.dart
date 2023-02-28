@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:plant_app/screens/details/details_screen.dart';
-import 'package:plant_app/screens/details/gmap.dart';
-import 'package:plant_app/screens/home/components/fromto.dart';
+import 'package:bus_tracker/interface/map/gmap.dart';
+import 'package:bus_tracker/interface/home/components/fromto.dart';
 
 import '../../../constants.dart';
 
@@ -39,12 +38,14 @@ class RecomendsPlants extends StatelessWidget {
             image: "assets/images/gmap.png",
             title: "Track live location",
             country: "Tamilnadu",
-            press: () {Navigator.push(
+            press: () {
+              Navigator.push(
                 context,
                 MaterialPageRoute(
                   builder: (context) => GMap(),
                 ),
-              );},
+              );
+            },
           ),
         ],
       ),

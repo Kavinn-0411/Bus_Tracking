@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:plant_app/constants.dart';
-import 'package:plant_app/screens/home/home_screen.dart';
-import 'package:plant_app/screens/home/login.dart';
+import 'package:bus_tracker/constants.dart';
+import 'package:bus_tracker/Interface/authentication/login.dart';
 import 'package:firebase_storage/firebase_storage.dart';
 import 'package:firebase_core/firebase_core.dart';
 

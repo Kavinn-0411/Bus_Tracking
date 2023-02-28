@@ -1,6 +1,6 @@
 import "package:flutter/material.dart";
 import "package:flutter_map/flutter_map.dart";
-import "package:latlong/latlong.dart";
+import "package:latlong2/latlong.dart";
 import "package:http/http.dart" as http;
 
 class GMap extends StatefulWidget {
@@ -23,8 +23,8 @@ class _GMapState extends State<GMap> {
           children: <Widget>[
             FlutterMap(
               options: new MapOptions(center: tomtomHQ, zoom: 13.0),
-              layers: [
-                new TileLayerOptions(
+              children: [
+                TileLayer(
                   urlTemplate: "https://api.tomtom.com/map/1/tile/basic/main/"
                       "{z}/{x}/{y}.png?key={apiKey}",
                   additionalOptions: {"apiKey": apiKey},

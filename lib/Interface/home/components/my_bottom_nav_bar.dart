@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 
-import '../constants.dart';
+import '/constants.dart';
 
 class MyBottomNavBar extends StatelessWidget {
   const MyBottomNavBar({
@@ -32,18 +32,18 @@ class MyBottomNavBar extends StatelessWidget {
         children: <Widget>[
           IconButton(
             //icon: SvgPicture.asset("assets/icons/flower.svg"),
-            icon:const Icon(Icons.home),
+            icon: const Icon(Icons.home),
             //highlightColor: Color.fromARGB(255, 58, 19, 200),
             onPressed: () {},
           ),
           IconButton(
             //icon: SvgPicture.asset("assets/icons/heart-icon.svg"),
-            icon:const Icon(Icons.repeat),
+            icon: const Icon(Icons.repeat),
             onPressed: () {},
           ),
           IconButton(
             //icon: SvgPicture.asset("assets/icons/user-icon.svg"),
-            icon:const Icon(Icons.settings),
+            icon: const Icon(Icons.settings),
             onPressed: () {},
           ),
         ],

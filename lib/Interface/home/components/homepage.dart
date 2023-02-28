@@ -1,9 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:plant_app/constants.dart';
-
+import 'package:bus_tracker/constants.dart';
 
 import 'header_with_seachbox.dart';
-import 'recomend_plants.dart';
+import 'body.dart';
 import 'title_with_more_bbtn.dart';
 
 class Body extends StatelessWidget {
