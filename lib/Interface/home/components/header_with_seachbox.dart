@@ -1,12 +1,13 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/flutter_svg.dart';
+// ignore: import_of_legacy_library_into_null_safe
+//import 'package:flutter_svg/flutter_svg.dart';
 
 import '../../../constants.dart';
 
 class HeaderWithSearchBox extends StatelessWidget {
   const HeaderWithSearchBox({
-    Key key,
-    @required this.size,
+    Key? key,
+    required this.size,
   }) : super(key: key);
 
   final Size size;
@@ -37,7 +38,7 @@ class HeaderWithSearchBox extends StatelessWidget {
               children: <Widget>[
                 Text(
                   'BUS TRACKING',
-                  style: Theme.of(context).textTheme.headline5.copyWith(
+                  style: Theme.of(context).textTheme.headline5!.copyWith(
                       color: Colors.white, fontWeight: FontWeight.bold),
                 ),
                 Spacer(),
@@ -87,7 +88,7 @@ class HeaderWithSearchBox extends StatelessWidget {
                       ),
                     ),
                   ),
-                  SvgPicture.asset("assets/icons/search.svg"),
+                  //SvgPicture.asset("assets/icons/search.svg"),
                 ],
               ),
             ),

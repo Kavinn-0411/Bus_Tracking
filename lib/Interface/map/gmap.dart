@@ -4,7 +4,7 @@ import "package:latlong2/latlong.dart";
 import "package:http/http.dart" as http;
 
 class GMap extends StatefulWidget {
-  const GMap({Key key}) : super(key: key);
+  const GMap({Key? key}) : super(key: key);
   @override
   State<GMap> createState() => _GMapState();
 }

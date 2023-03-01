@@ -6,7 +6,7 @@ import '../../../constants.dart';
 
 class RecomendsPlants extends StatelessWidget {
   const RecomendsPlants({
-    Key key,
+    Key? key,
   }) : super(key: key);
 
   @override
@@ -19,6 +19,12 @@ class RecomendsPlants extends StatelessWidget {
             image: "assets/images/dbus.png",
             title: "DISTRICT BUSES",
             country: "Tamilnadu",
+            press: () {}, //price: null,
+          ),
+          RecomendPlantCard(
+            image: "assets/images/lbus.png",
+            title: "CITY BUSES",
+            country: "Madurai",
             press: () {
               Navigator.push(
                 context,
@@ -27,12 +33,6 @@ class RecomendsPlants extends StatelessWidget {
                 ),
               );
             },
-          ),
-          RecomendPlantCard(
-            image: "assets/images/lbus.png",
-            title: "CITY BUSES",
-            country: "Madurai",
-            press: () {},
           ),
           RecomendPlantCard(
             image: "assets/images/gmap.png",
@@ -55,17 +55,18 @@ class RecomendsPlants extends StatelessWidget {
 
 class RecomendPlantCard extends StatelessWidget {
   const RecomendPlantCard({
-    Key key,
-    this.image,
-    this.title,
-    this.country,
-    this.price,
-    this.press,
+    Key? key,
+    required this.image,
+    required this.title,
+    required this.country,
+    //required this.price,
+    required this.press,
+    // required this.price,
   }) : super(key: key);
 
   final String image, title, country;
-  final int price;
-  final Function press;
+  //final int price;
+  final VoidCallback press;
 
   @override
   Widget build(BuildContext context) {
