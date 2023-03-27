@@ -161,12 +161,13 @@ class _MyCustomFormState extends State<MyCustomForm> {
             padding: const EdgeInsets.symmetric(vertical: 16.0),
             child: ElevatedButton(
               onPressed: () {
+                if (_formKey.currentState!.validate()){
                 Navigator.push(
                 context,
                 MaterialPageRoute(
                   builder: (context) => Displaybus(),
                 ),
-              );
+              );}
               },
               child: const Text('Submit'),
             ),
