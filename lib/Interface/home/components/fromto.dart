@@ -38,20 +38,23 @@ class _MyCustomFormState extends State<MyCustomForm> {
   FocusNode searchFocusNode = FocusNode();
   FocusNode textFieldFocusNode = FocusNode();
   late SingleValueDropDownController _cnt;
- // MultiValueDropDownController _cntMulti;
+  // MultiValueDropDownController _cntMulti;
   @override
   void initState() {
     _cnt = SingleValueDropDownController();
-   // _cntMulti = MultiValueDropDownController();
+    // _cntMulti = MultiValueDropDownController();
     super.initState();
   }
 
   @override
   void dispose() {
     _cnt.dispose();
-   // _cntMulti.dispose();
+    // _cntMulti.dispose();
     super.dispose();
   }
+
+//late String frominput;
+//late String toinput;
 
   @override
   Widget build(BuildContext context) {
@@ -90,7 +93,7 @@ class _MyCustomFormState extends State<MyCustomForm> {
           // initialValue: "name4",
 
           controller: _cnt,
-          
+
           clearOption: true,
           enableSearch: false,
           dropdownColor: Color.fromARGB(255, 238, 220, 231),
@@ -99,7 +102,7 @@ class _MyCustomFormState extends State<MyCustomForm> {
           searchFocusNode: searchFocusNode,
           searchDecoration: const InputDecoration(
               hintText: "enter your custom hint text here"),
-             // key: _formKey,
+          // key: _formKey,
           validator: (value) {
             if (value == null) {
               return "Required field";
@@ -115,7 +118,9 @@ class _MyCustomFormState extends State<MyCustomForm> {
             DropDownValueModel(name: 'Park Town', value: "value9"),
             DropDownValueModel(name: 'Goripalayam', value: "value4"),
           ],
-          onChanged: (val) {},
+          onChanged: (val) {
+            //frominput=val;
+          },
         ),
         const SizedBox(
           height: 50,
@@ -139,7 +144,7 @@ class _MyCustomFormState extends State<MyCustomForm> {
           searchFocusNode: searchFocusNode,
           searchDecoration: const InputDecoration(
               hintText: "enter your custom hint text here"),
-              //key: _formKey,
+          //key: _formKey,
           validator: (value) {
             if (value == null) {
               return "Required field";
@@ -155,26 +160,29 @@ class _MyCustomFormState extends State<MyCustomForm> {
             DropDownValueModel(name: 'Park Town', value: "value9"),
             DropDownValueModel(name: 'Goripalayam', value: "value4"),
           ],
-          onChanged: (val) {},
+          onChanged: (val) {
+            //toinput=val;
+          },
         ),
         Padding(
-            padding: const EdgeInsets.symmetric(vertical: 16.0),
-            child: ElevatedButton(
-              onPressed: () {
-                if (_formKey.currentState!.validate()){
+          padding: const EdgeInsets.symmetric(vertical: 16.0),
+          child: ElevatedButton(
+            onPressed: () {
+              //if (_formKey.currentState!.validate()) {
                 Navigator.push(
-                context,
-                MaterialPageRoute(
-                  builder: (context) => Displaybus(),
-                ),
-              );}
-              },
-              child: const Text('Submit'),
-            ),
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) => Displaybus(),
+                  ),
+                );
+                //print(frominput);
+                //print(toinput);
+              //}
+            },
+            child: const Text('Submit'),
           ),
+        ),
       ],
     );
   }
 }
-
-
