@@ -2,6 +2,7 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 //import 'package:firebase_storage/firebase_storage.dart';
 //import 'package:firebase_core/firebase_core.dart';
+import 'package:bus_tracker/Interface/home/components/map.dart';
 
 class Displaybus extends StatefulWidget {
   const Displaybus({Key? key}) : super(key: key);
@@ -20,22 +21,64 @@ class _DisplaybusState extends State<Displaybus> {
         appBar: AppBar(
           title: const Text(appTitle),
         ),
-        body: StreamBuilder<List<User>>(
-          stream: readUsers(),
-          builder: (context, snapshot) {
-            if (snapshot.hasError) {
-              return Text('Something went wrong! ${snapshot.error}');
-            } else if (snapshot.hasData) {
-              final users = snapshot.data!;
-              return ListView(
-                children: users.map(buildUser).toList(),
-              ); // ListView
-            } else {
-              return Center(child: CircularProgressIndicator());
-            }
-          },
-        ),
+        body: Column(children: [
+          StreamBuilder<List<User>>(
+            stream: readUsers(),
+            builder: (context, snapshot) {
+              if (snapshot.hasError) {
+                return Text('Something went wrong! ${snapshot.error}');
+              } else if (snapshot.hasData) {
+                final users = snapshot.data!;
+                return ListView(
+                  children: users.map(buildUser).toList(),
+                ); // ListView
+              } else {
+                return Center(child: CircularProgressIndicator());
+              }
+            },
+          ),
+          ElevatedButton(
+            onPressed: () {
+              
+              Navigator.push(
+                context,
+                MaterialPageRoute(
+                  builder: (context) => GMap(),
+                ),
+              );
+              
+            },
+            child: const Text('Map'),
+          ),
+          
+        ]),
       ),
+    );
+  }
+
+  Widget buildsubmit(BuildContext context) {
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: <Widget>[
+        Padding(
+          padding: const EdgeInsets.symmetric(vertical: 16.0),
+          child: ElevatedButton(
+            onPressed: () {
+              //if (_formKey.currentState!.validate()) {
+              Navigator.push(
+                context,
+                MaterialPageRoute(
+                  builder: (context) => GMap(),
+                ),
+              );
+              //print(frominput);
+              //print(toinput);
+              //}
+            },
+            child: const Text('Map'),
+          ),
+        ),
+      ],
     );
   }
 
@@ -43,7 +86,7 @@ class _DisplaybusState extends State<Displaybus> {
         leading: CircleAvatar(child: Text('${user.busno}')),
         title: Text(user.start),
         //trailing: Text(user.end),
-        subtitle:Text(user.end),
+        subtitle: Text(user.end),
         trailing: Text(user.time.toDate().toString()),
       ); // ListTile
   Stream<List<User>> readUsers() => FirebaseFirestore.instance
